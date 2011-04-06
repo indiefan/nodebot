@@ -1,56 +1,33 @@
-// Make sure the irc lib is available
-require.paths.unshift(__dirname + '/lib');
+var bot = require(__dirname + '/lib/nodebot');
 
-var sys = require('sys');
-var irc = require(__dirname + '/lib/node-irc/lib/irc');
+var nodebot2a = new bot.Nodebot();
+var bot = nodebot2a.bot;
 
-var ssl_options = true;
-
-var bot = new irc.Client('irc.freenode.net', 'nodebot2a', {
-	userName: 'nodebot2a',
-	realName: 'Node Bot',
-	port: 7000,
-	debug: true,
-	secure: ssl_options,
-	channels: ['#2Advanced'],
+nodebot2a.addMessageHandler(/goodbye/i, function(from, to, message) {
+	bot.say(to, 'goodbye ' + from);
 });
 
-bot.addListener('error', function(message) {
-    sys.puts('ERROR: ' + message.command + ': ' + message.args.join(' '));
+nodebot2a.addMessageHandler(/hello/i, function(from, to, message) {
+	nodebot2a.say(to, 'Hello there ' + from);
 });
 
-bot.addListener('message#blah', function (from, message) {
-    sys.puts('<' + from + '> ' + message);
+nodebot2a.addMessageHandler(/dance/, function(from, to, message) {
+	setTimeout(function () { nodebot2a.say(to, "\u0001ACTION dances: :D\\-<\u0001") }, 1000);
+	setTimeout(function () { nodebot2a.say(to, "\u0001ACTION dances: :D|-<\u0001")  }, 2000);
+	setTimeout(function () { nodebot2a.say(to, "\u0001ACTION dances: :D/-<\u0001")  }, 3000);
+	setTimeout(function () { nodebot2a.say(to, "\u0001ACTION dances: :D|-<\u0001")  }, 4000);
 });
 
-bot.addListener('message', function (from, to, message) {
-    sys.puts(from + ' => ' + to + ': ' + message);
-
-    if ( to.match(/^[#&]/) ) {
-        // channel message
-        if ( message.match(/hello/i) ) {
-            bot.say(to, 'Hello there ' + from);
-        }
-        if ( message.match(/dance/) ) {
-            setTimeout(function () { bot.say(to, "\u0001ACTION dances: :D\\-<\u0001") }, 1000);
-            setTimeout(function () { bot.say(to, "\u0001ACTION dances: :D|-<\u0001")  }, 2000);
-            setTimeout(function () { bot.say(to, "\u0001ACTION dances: :D/-<\u0001")  }, 3000);
-            setTimeout(function () { bot.say(to, "\u0001ACTION dances: :D|-<\u0001")  }, 4000);
-        }
-    }
-    else {
-        // private message
-    }
-});
-bot.addListener('pm', function(nick, message) {
-    sys.puts('Got private message from ' + nick + ': ' + message);
-});
-bot.addListener('join', function(channel, who) {
-    sys.puts(who + ' has joined ' + channel);
-});
-bot.addListener('part', function(channel, who, reason) {
-    sys.puts(who + ' has left ' + channel + ': ' + reason);
-});
-bot.addListener('kick', function(channel, who, by, reason) {
-    sys.puts(who + ' was kicked from ' + channel + ' by ' + by + ': ' + reason);
+nodebot2a.addMessageHandler(/nodebot2a\: leave/i, function(from, to, message) {
+	var me = bot.nick;
+	if (from == "indiefan2a") {
+		console.log('Quitting...');
+		nodebot2a.bot.disconnect("Fine. I'll leave.");
+	} else {
+		if (from != "indiefan2a") {
+			bot.say(to, "You're not the boss of me, " + from);
+		} else {
+			console.log('FROM: ' + from + ', TO: ' + to + '. Did not match my nick: ' + me);
+		}
+	}
 });
