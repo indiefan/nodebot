@@ -1,0 +1,6 @@
+[submodule "node-irc"]
+	path = node-irc
+	url = git://github.com/indiefan/node-irc.git
+[submodule "lib/node-irc"]
+	path = lib/node-irc
+	url = git://github.com/indiefan/node-irc.git
