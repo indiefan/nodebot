@@ -1,27 +1,17 @@
 // Make sure the irc lib is available
-require.paths.unshift(__dirname + '/../lib');
+require.paths.unshift(__dirname + '/lib');
 
 var sys = require('sys');
-var irc = require(__dirname + '/../lib/irc');
-/*
-* To set the key/cert explicitly, you could do the following
-var fs = require('fs');
+var irc = require(__dirname + '/lib/node-irc/lib/irc');
 
-var options = {
-  key: fs.readFileSync('privkey.pem'),
-  cert: fs.readFileSync('certificate.crt')
-};
-*/
-
-// Or to just use defaults
-var options = true;
+var ssl_options = true;
 
 var bot = new irc.Client('irc.freenode.net', 'nodebot2a', {
 	userName: 'nodebot2a',
 	realName: 'Node Bot',
 	port: 7000,
 	debug: true,
-	secure: options,
+	secure: ssl_options,
 	channels: ['#2Advanced'],
 });
 
