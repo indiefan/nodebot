@@ -76,6 +76,13 @@ nodebot2a.addMessageHandler(/nodebot2a\: (insult)|(reprimand) \w*/, function(fro
 	bot.say(to, insultee + ': You are ' + article + ' ' + adverb + ' ' + adjective + ' ' + noun);
 });
 
+nodebot2a.addMessageHandler(/escape .*/, function(from, to, message) {
+	var theString = message.substring(7);
+	var encoded = encodeURIComponent(theString);
+
+	bot.say(to, from + ': "' + theString + '" url encoded is "' + encoded + '"');
+});
+
 
 //==========================================================================
 // Utility Methods
