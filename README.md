@@ -10,7 +10,8 @@ at the same time. https://gist.github.com/579814
 
 After you have node installed, simply:
 
-* Updated config.js with your settings
+* Update config.js with your settings
+* [Optional] Add/Remove and plugins you want in `lib/plugins/`
 * Run `node run.js`
 
 #Plugins
