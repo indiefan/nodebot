@@ -66,3 +66,11 @@ some cyclical links.
    that print help messages from plugins
 8. Add a concept of scope for plugins (public room, pm, nick mention,
    etc.)
+9. Add an optional property to plugins that wish to disallow
+   hot-reloading (maybe they perform a require of their own) and check
+this befor reloading the module
+10. Catch runtime exceptions with fs file calls and handle them so the
+	bot doesn't crash
+11. Implement strategy for handling subfolders inside of plugins
+	directory (incase plugins are included as git submodules or
+something along those lines)
