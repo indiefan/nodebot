@@ -16,13 +16,25 @@ the magic.
 The easiest way to control nodebot is to write a plugin. A plugin is an
 encapsulated command for the bot to respond to, which consists of at
 least three things:
+
 1. name - The name of the plugin
 2. regex - The regex applied to messages to capture and execute this
    command
 3. callback - The code to execute for this command
 
 I've included a few example plugins with this repository to give you an
-idea of the syntax for plugins.
+idea of the syntax for plugins. The simplest of which is as follows:
+
+	/**
+	 * Nodebot plugin to be friendly
+	 */
+	function Command() {
+		this.name = "Salutations";
+		this.regex = /hello/i;
+		this.callback = function(from, to, message, bot) {
+			bot.say(to, 'Hello to you too, ' + from);
+		}
+	};
 
 As of now, plugins auto-load from the 'lib/plugins' folder without you
 needing to do anything. In the future auto-loading will be an option, as
