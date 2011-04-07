@@ -60,3 +60,9 @@ some cyclical links.
 3. Add Command to load new module dynamically
 4. Add more plugins
 5. Add option for plugins to not auto-load from the plugins folder
+6. Add some basic plugin validation that ensures we get a String name,
+   Regex regex, and Function callback
+7. Add built in list and man/help commands that list loaded plugins and
+   that print help messages from plugins
+8. Add a concept of scope for plugins (public room, pm, nick mention,
+   etc.)
