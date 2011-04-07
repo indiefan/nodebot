@@ -47,7 +47,7 @@ idea of the syntax for plugins. The simplest of which is as follows:
 As of now, plugins auto-load from the 'lib/plugins' folder without you
 needing to do anything. In the future auto-loading will be an option, as
 well as explicitly stating the plugins to use. Also, there is a config
-option `livePlugins` that will watch each plugin file and if it changes,
+option `livePlugins` that, if true, will tell the bot to watch each plugin file and if it changes,
 hot-reload the plugin without killing your bot. Use this with caution,
 as it is prone to memory leaks if your plugin does a require of it's
 own or sets up
