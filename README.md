@@ -53,5 +53,6 @@ some cyclical links.
 
 1. Add Support for RPC and HTTP command plugins
 2. Add "Owner" config option and bot property
-1. Add more plugins
-2. Add option for plugins to not auto-load from the plugins folder
+3. Add Command to load new module dynamically
+4. Add more plugins
+5. Add option for plugins to not auto-load from the plugins folder
