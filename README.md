@@ -36,6 +36,8 @@ idea of the syntax for plugins. The simplest of which is as follows:
 		}
 	};
 
+	exports.Command = Command;
+
 As of now, plugins auto-load from the 'lib/plugins' folder without you
 needing to do anything. In the future auto-loading will be an option, as
 well as explicitly stating the plugins to use. Also, there is a config
