@@ -17,7 +17,9 @@ After you have node installed, simply:
 #Plugins
 
 The easiest way to control nodebot is to write a plugin. A plugin is an
-encapsulated command for the bot to respond to, which consists of at
+encapsulated command for the bot to respond to. At present, the only
+supported plugins are message responders, which respond to messages in
+irc that match a given pattern, and these plugins consists of at
 least three things:
 
 1. name - The name of the plugin
@@ -41,6 +43,7 @@ idea of the syntax for plugins. The simplest of which is as follows:
 
 	exports.Command = Command;
 
+##Auto Load and Hot-Reloading
 As of now, plugins auto-load from the 'lib/plugins' folder without you
 needing to do anything. In the future auto-loading will be an option, as
 well as explicitly stating the plugins to use. Also, there is a config
