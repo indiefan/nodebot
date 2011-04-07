@@ -55,22 +55,14 @@ some cyclical links.
 
 #TODO
 
-1. Add Support for RPC and HTTP command plugins
-2. Add "Owner" config option and bot property
-3. Add Command to load new module dynamically
-4. Add more plugins
-5. Add option for plugins to not auto-load from the plugins folder
-6. Add some basic plugin validation that ensures we get a String name,
+* Add Support for RPC and HTTP command plugins
+* Add more plugins
+* Add some basic plugin validation that ensures we get a String name,
    Regex regex, and Function callback
-7. Add built in list and man/help commands that list loaded plugins and
+* Add built in list and man/help commands that list loaded plugins and
    that print help messages from plugins
-8. Add a concept of scope for plugins (public room, pm, nick mention,
+* Add a concept of scope for plugins (public room, pm, nick mention,
    etc.)
-9. Add an optional property to plugins that wish to disallow
-   hot-reloading (maybe they perform a require of their own) and check
-this befor reloading the module
-10. Catch runtime exceptions with fs file calls and handle them so the
-	bot doesn't crash
-11. Implement strategy for handling subfolders inside of plugins
+* Implement strategy for handling subfolders inside of plugins
 	directory (incase plugins are included as git submodules or
-something along those lines)
+something along those lines) and ignoring non .js files
