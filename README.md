@@ -13,8 +13,8 @@ the magic.
 
 #TODO
 
-1. Add command to reload nodebot2a's command set (will probably require
-   autodeploy)
+1. Add in code to watch plugins for updates (and watch folder if
+   possible for new plugins)
 2. Separate out inline config options in lib/nodebot.js into a config
    file for better management
 3. Add more commands
