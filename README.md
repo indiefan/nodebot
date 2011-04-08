@@ -11,7 +11,7 @@ at the same time. https://gist.github.com/579814
 After you have node installed, simply:
 
 * Update config.js with your settings
-* [Optional] Add/Remove and plugins you want in `lib/plugins/`
+* [Optional] Add/Remove any plugins you want in `lib/plugins/`
 * Run `node run.js`
 
 #Plugins
